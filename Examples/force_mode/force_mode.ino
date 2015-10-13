@@ -32,7 +32,11 @@ VEML6040 RGBWSensor;
 void setup() {
   Serial.begin(9600);
   Wire.begin();
-
+  if(!RGBWSensor.begin()) {
+    Serial.println("ERROR: couldn't detect the sensor");
+    while(1){}
+  }
+  
   /*
   * init RGBW sensor with: 
   *  - 160ms integration time
@@ -43,9 +47,12 @@ void setup() {
   RGBWSensor.setConfiguration(VEML6040_IT_160MS + VEML6040_TRIG_ENABLE + VEML6040_AF_FORCE + VEML6040_SD_ENABLE);	
 
   delay(1500);
-  Serial.println("Vishay VEML6040 RGBW color sensor force mode example");
-  delay(500);
+  Serial.println("Vishay VEML6040 RGBW color sensor auto mode example");
+  Serial.println("CCT: Correlated color temperature in \260K");
+  Serial.println("AL: Ambient light in lux");
+  delay(1000);
   Serial.println("Enter 't' or 'f' to get new color measurements");
+  delay(1000);
 }
 
 void loop() {
@@ -75,22 +82,27 @@ void loop() {
         *  - color sensor enable
         */
           
-        RGBWSensor.setConfiguration(VEML6040_IT_160MS + VEML6040_TRIG_ENABLE + VEML6040_AF_FORCE + VEML6040_SD_ENABLE);
-        Serial.println("integration time 160ms"); 
+        RGBWSensor.setConfiguration(VEML6040_IT_80MS + VEML6040_TRIG_ENABLE + VEML6040_AF_FORCE + VEML6040_SD_ENABLE);
+        Serial.println("integration time 80ms"); 
         break;
 				
       default:
+        Serial.println("Enter 't' or 'f' to get new color measurements");
         break;           
     }
   }
 
-  Serial.print("R: ");
+  Serial.print("RED: ");
   Serial.print(RGBWSensor.getRed());  
-  Serial.print(" G: ");
+  Serial.print(" GREEN: ");
   Serial.print(RGBWSensor.getGreen());  
-  Serial.print(" B: ");
+  Serial.print(" BLUE: ");
   Serial.print(RGBWSensor.getBlue());  
-  Serial.print(" W: ");
-  Serial.println(RGBWSensor.getWhite());  
-  delay(250);
+  Serial.print(" WHITE: ");
+  Serial.print(RGBWSensor.getWhite()); 
+  Serial.print(" CCT: ");
+  Serial.print(RGBWSensor.getCCT());  
+  Serial.print(" AL: ");
+  Serial.println(RGBWSensor.getAmbientLight()); 
+  delay(400);
 }

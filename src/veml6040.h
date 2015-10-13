@@ -22,9 +22,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-V0.1 # 07-SEPT-2015 # thewknd # initial release 
-
 */
 
 #ifndef VEML6040_H
@@ -60,18 +57,31 @@ V0.1 # 07-SEPT-2015 # thewknd # initial release
 #define COMMAND_CODE_BLUE      0x0A
 #define COMMAND_CODE_WHITE     0x0B
 
+// G SENSITIVITY
+
+#define VEML6040_GSENS_40MS       0.25168
+#define VEML6040_GSENS_80MS       0.12584
+#define VEML6040_GSENS_160MS      0.06292
+#define VEML6040_GSENS_320MS      0.03146
+#define VEML6040_GSENS_640MS      0.01573
+#define VEML6040_GSENS_1280MS     0.007865
+
 class VEML6040 {
 	
   private: 
     uint16_t read(uint8_t);
+    uint8_t lastConfiguration;
 	
   public:
     VEML6040(void);
+    bool begin(void);
     void setConfiguration(uint8_t);
     uint16_t getRed(void);
     uint16_t getGreen(void);
     uint16_t getBlue(void);
-    uint16_t getWhite(void);	
+    uint16_t getWhite(void);
+    uint16_t getCCT(float offset = 0.5);  
+    float getAmbientLight(void);
 };
 
 #endif
