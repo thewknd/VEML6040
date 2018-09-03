@@ -25,7 +25,10 @@ SOFTWARE.
 */
 
 #include "Wire.h"
-#include "VEML6040.h"
+#ifndef __MATH_H
+#include <math.h>
+#endif
+#include "veml6040.h"
 
 
 VEML6040::VEML6040(void) {
