@@ -77,7 +77,7 @@ void loop() {
          
         /*
         * init RGBW sensor with: 
-        *  - 160ms integration time
+        *  - 80ms integration time
         *  - force mode with trigger
         *  - color sensor enable
         */

@@ -21,7 +21,7 @@ To install, download the latest release as .zip file and add it to your
 
    ![VEML6040 breakout board](extras/breakout_1_.jpg)
 
-   This breakout board has additional level shifting built in and can therefore be used with 5V Arduino board.
+   This breakout board has additional level shifting built in and can therefore be used with 5V Arduino boards.
 
    * **VIN** of the VEML6040 to the **3.3V** of your Arduino board (5V is also possible)
    * **GND** of the VEML6040 to the **GND** of your Arduino board
