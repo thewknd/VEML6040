@@ -1,6 +1,6 @@
 {
     "name": "VEML6040",
-    "version": "0.3.0",
+    "version": "0.3.1",
 	"description": "Vishay VEML6040 RGBW color sensor library for Arduino",
 	"keywords": "sensor, color sensor, rgb",
     "repository":
