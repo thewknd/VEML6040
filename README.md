@@ -37,6 +37,5 @@ To install, download the latest release as .zip file and add it to your
 		Sketch => Upload
 
 4. When the upload process has finished, open the `Serial Monitor` or `Serial
-   Plotter` via the `Tools` menu to observe the measured CO2, Temperature and
-   Humidity values. Note that the `Baud Rate` in the corresponding window has
+   Plotter` via the `Tools` menu to observe the measured values. Note that the `Baud Rate` in the corresponding window has
    to be set to `9600 baud`.
