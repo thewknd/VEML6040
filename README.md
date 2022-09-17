@@ -5,13 +5,6 @@ Vishay VEML6040 RGBW color sensor library for Arduino
 
 Click [here](https://www.vishay.com/ppg?84276) to learn more about the Vishay VEML6040 RGBW color sensor.
 
-# Installation
-
-To install, download the latest release as .zip file and add it to your
-[Arduino IDE](http://www.arduino.cc/en/main/software) via
-
-	Sketch => Include Library => Add .ZIP Library...
-
 # Quick Start
 
 1. Connect the VEML6040 sensor to your Arduino board's standard I2C bus. Check
